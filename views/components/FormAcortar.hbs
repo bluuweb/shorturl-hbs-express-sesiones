@@ -1,0 +1,15 @@
+{{#if urlDB}}
+
+    <form action="/editar/{{urlDB._id}}" method="post">
+        <input type="text" placeholder="Ingresa URL" class="form-control my-2" name="originURL" value="{{urlDB.origin}}">
+        <button class="btn btn-warning mb-2 w-100">Editar URL</button>
+    </form>
+
+    {{else}}
+
+    <form action="/" method="post">
+        <input type="text" placeholder="Ingresa URL" class="form-control my-2" name="originURL">
+        <button class="btn btn-dark mb-2 w-100">Acortar URL</button>
+    </form>
+
+{{/if}}

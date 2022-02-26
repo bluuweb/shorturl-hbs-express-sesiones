@@ -5,6 +5,7 @@ const validarURL = (req, res, next) => {
         const { originURL } = req.body;
         const urlFrontend = new URL(originURL);
         if (urlFrontend.origin !== "null") {
+            // validación para que no envíen ftp://
             if (
                 urlFrontend.protocol === "http:" ||
                 urlFrontend.protocol === "https:"

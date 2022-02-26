@@ -5,12 +5,16 @@ const validarURL = (req, res, next) => {
         const { originURL } = req.body;
         const urlFrontend = new URL(originURL);
         if (urlFrontend.origin !== "null") {
-            return next();
-        } else {
-            throw new Error("no válida 😲");
+            if (
+                urlFrontend.protocol === "http:" ||
+                urlFrontend.protocol === "https:"
+            ) {
+                return next();
+            }
         }
+        throw new Error("no válida 😲");
     } catch (error) {
-        // console.log(error);
+        console.log(error);
         return res.redirect("/");
     }
 };

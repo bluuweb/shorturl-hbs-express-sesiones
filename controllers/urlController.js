@@ -48,7 +48,7 @@ const editarUrl = async (req, res) => {
     try {
         const url = await Url.findById(id);
         if (!url) {
-            console.log("no exite");
+            console.log("no exite 2");
             return res.send("error no existe el documento a editar");
         }
 
@@ -62,11 +62,14 @@ const editarUrl = async (req, res) => {
 
 const redireccionar = async (req, res) => {
     const { shortURL } = req.params;
+    // console.log(shortURL);
+    if (!shortURL) return res.send("fallá el parametro");
+    if (shortURL === "favicon.ico") return res.send("fallá el parametro");
     try {
         const url = await Url.findOne({ shortURL });
         // console.log(url);
         if (!url?.origin) {
-            console.log("no exite");
+            console.log("no exite 1");
             return res.send("error no existe el redireccionamiento");
         }
 

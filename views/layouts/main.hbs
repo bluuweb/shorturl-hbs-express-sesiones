@@ -13,6 +13,11 @@
     {{> Navbar}}
 
     <div class="container mt-2">
+
+        {{#each mensajes }}
+            <div class="alert alert-dark">{{this.msg}}</div>
+        {{/each}}
+
         {{{body}}}
     </div>
 
